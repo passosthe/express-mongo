@@ -1,4 +1,5 @@
-import http from "http";
+// import http from "http";
+import app from "./src/app.js";
 
 const PORT = 3000; // porta de comunicação utilizada nessa api
 
@@ -8,15 +9,15 @@ const rotas = {
     "/autores" : "Entrei na rota autores"
 }
 
-//criando servidor local
-const server = http.createServer( ( req, res ) => {
-    res.writeHead(
-        200, //resposta
-        { "content-type": "text/plain" } //tipo de conteúdo
-    );
-    res.end(rotas[req.url]) //conteúdo
-})
+//criando servidor local via biblioteca nativa do node (http)
+// const server = http.createServer( ( req, res ) => {
+//     res.writeHead(
+//         200, //resposta
+//         { "content-type": "text/plain" } //tipo de conteúdo
+//     );
+//     res.end(rotas[req.url]) //conteúdo
+// })
 
-server.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log("servidor escutando!")
 });
